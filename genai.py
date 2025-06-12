@@ -7,11 +7,9 @@ import pickle
 import numpy as np
 import pandas as pd 
 import streamlit as st 
-from sklearn.preprocessing import StandardScaler
-from csv_to_json import csv_to_json
 
 
-st.title("Title")
+st.title("Payroll Fraud Alerts using AI")
 
 payroll_file = st.file_uploader("Upload Payroll Data")
 
@@ -42,9 +40,11 @@ def get_genai_response(payroll_data):
         
         Always explain in simple, human-readable terms as if you are writing a short note to a manager.
         
-        If the record is not suspicious, say: "No fraud detected in this record."
+        If the record is not suspicious (column name "is_suspicious" if 0 that means not suspicious, else suspicious), say: "No fraud detected in this record."
         
         Return only the explanation. Do not repeat the input or label it.
+
+        Manual inspection reasons : {}
     """
 
 
